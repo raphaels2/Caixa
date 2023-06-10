@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    
+    
+    <title>Caixa</title>
+</head>
+<body>
+  
+   <Script>
+    
+	var saldo = 100; 
+var senhaCorreta = 3589; 
+
+function inicio() {
+  var nome = prompt("Qual é o seu nome?");
+  alert("Olá " + nome + ", é um prazer ter você por aqui!");
+
+		var escolha = parseInt(prompt('Selecione uma opção) Saldo 1.) Extrato 2.) Saque 3.) Depósito 4.) Transfêrencia 5.) Sair 6.'));
+
+    if (escolha === 1) {
+			ver_saldo();
+		} else if (escolha === 4) {
+			fazer_deposito();
+		} else if (escolha === 3) {
+			fazer_saque();
+		} else if (escolha === 6) {
+			sair();
+		}	else if (escolha === 2) {
+			ver_Extrato();
+		} else if (escolha === 5) {
+			ver_Transferencia();
+		}
+	}		
+  
+
+  function ver_saldo() {
+  var senhaInformada = prompt("Digite sua senha:");
+  if (parseInt(senhaInformada) !== senhaCorreta) {
+    alert("Senha incorreta. Operação não autorizada.");
+    inicio();
+    return;
+  }
+
+  alert("Saldo atual: " + saldo);
+}
+	
+function fazer_deposito() {
+  var valorDeposito = prompt("Digite o valor que deseja depositar:");
+  valorDeposito = parseInt(valorDeposito);
+
+  if (valorDeposito <= 0) {
+    alert("Operação não autorizada. Valor inválido.");
+    return;
+  }
+
+  saldo += valorDeposito;
+  alert(
+    "Depósito de " + valorDeposito + " realizado com sucesso. Saldo atual: " + saldo
+  );
+}
+
+function fazer_saque() {
+  var senhaInformada = prompt("Digite sua senha:");
+  if (parseInt(senhaInformada) !== senhaCorreta) {
+    alert("Senha incorreta. Operação não autorizada.");
+    inicio();
+    return;
+  }
+
+  var valorSaque = prompt("Digite o valor que deseja sacar:");
+  valorSaque = parseInt(valorSaque);
+
+  if (valorSaque <= 0) {
+    alert("Operação não autorizada. Valor inválido.");
+    return;
+  }
+
+  if (valorSaque > saldo) {
+    alert("Operação não autorizada. Saldo insuficiente.");
+    return;
+  }
+
+  saldo -= valorSaque;
+  alert(
+    "Saque de " + valorSaque + " realizado com sucesso. Saldo restante: " + saldo
+  );
+}
+	function erro() {
+		alert('Por favor, informe um número entre 1 e 4');
+		inicio();
+	}
+
+	function sair() {
+		var confirma = confirm('Você deseja sair?');
+		if (confirma) {
+			window.close();
+		} else {
+			inicio();
+			
+		}
+	}
+	
+	function ver_Transferencia() {
+  var senhaInformada = prompt("Digite sua senha:");
+  if (parseInt(senhaInformada) !== senhaCorreta) {
+    alert("Senha incorreta. Operação não autorizada.");
+    inicio();
+    return;
+  }
+
+  var numeroConta = prompt("Digite o número da conta para a transferência:");
+  numeroConta = parseInt(numeroConta);
+
+  if (isNaN(numeroConta)) {
+    alert("Número de conta inválido. Operação não autorizada.");
+    return;
+  }
+
+  var valorTransferencia = prompt("Digite o valor que deseja transferir:");
+  valorTransferencia = parseInt(valorTransferencia);
+
+  if (valorTransferencia <= 0) {
+    alert("Operação não autorizada. Valor inválido.");
+    return;
+  }
+
+  if (valorTransferencia > saldo) {
+    alert("Operação não autorizada. Saldo insuficiente.");
+    return;
+  }
+
+  saldo -= valorTransferencia;
+  alert(
+    "Transferência de " +
+      valorTransferencia +
+      " para a conta " +
+      numeroConta +
+      " realizada com sucesso. Saldo restante: " +
+      saldo
+  );
+}
+ 
+  function ver_Extrato(nome) {
+  var senhaInformada = prompt("Digite sua senha:");
+  if (parseInt(senhaInformada) !== senhaCorreta) {
+    alert("Senha incorreta. Operação não autorizada.");
+    inicio();
+    return;
+  }
+
+  alert("Extrato: Acesse seu extrato apertando ok");
+}
+	
+
+	function funcao1()
+{
+alert(" !");
+}
+
+inicio();
+</script>
+</head>
+
+<h1>
+    Extrato Bancario<BR>
+ Vizualize seus extrato
+
+</h1>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>15/05/2023</td>
+        <td>Raphael</td>
+        <td>-R$ 1.00</td>
+      </tr>
+      <tr>
+        <td>17/05/2023</td>
+        <td>Compra na gucci
+          
+        </td>
+        <td>-R$ 150,00</td>
+      </tr>
+      <tr>
+        <td>27/05/2023</td>
+        <td>Saque</td>
+        <td>-R$ 200,00</td>
+      </tr>
+      <td>01/06/2023</td>
+      <td>Déposito</td>
+      <td>R$ 300,00</td>
+       <tr>
+        <td>03/06/2023</td>
+        <td>Mac Donalds</td>
+        <td>-R$ 500,00</td>
+       </tr>   
+    </tbody>
+  </table>
+
+
+
+</body>
+
+</html>
+
